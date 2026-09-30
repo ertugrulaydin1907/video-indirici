@@ -7,6 +7,10 @@ import yt_dlp
 
 app = FastAPI(title="Video Downloader Worker")
 
+@app.get("/health")
+def health():
+    return {"ok": True, "service": "video-indirici-worker"}
+
 class Req(BaseModel):
     url: str
 
