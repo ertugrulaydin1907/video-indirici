@@ -13,7 +13,7 @@ async function readApiResponse(response) {
   }
   let data;
   try { data = JSON.parse(text); } catch { throw new Error('Sunucudan geçersiz JSON geldi (HTTP ' + response.status + ').'); }
-  if (!response.ok) throw new Error(data.error || 'İstek başarısız (HTTP ' + response.status + ').');
+  if (!response.ok) throw new Error(data.error || data.detail || 'İstek başarısız (HTTP ' + response.status + ').');
   return data;
 }
 
