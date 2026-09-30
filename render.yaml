@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: video-indirici-web
+    runtime: node
+    plan: free
+    region: frankfurt
+    branch: main
+    rootDir: web
+    buildCommand: npm install && npm run build
+    startCommand: npm start -- -p $PORT
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: WORKER_URL
+        value: https://video-indirici-worker.onrender.com
