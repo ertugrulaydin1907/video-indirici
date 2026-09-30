@@ -1,0 +1,9 @@
+services:
+  worker:
+    build: ./worker
+    ports: ["8080:8080"]
+  web:
+    build: ./web
+    ports: ["3000:3000"]
+    environment:
+      WORKER_URL: http://worker:8080
