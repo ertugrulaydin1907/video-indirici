@@ -22,7 +22,7 @@ def validate(url: str):
         raise HTTPException(400, "Şimdilik yalnızca YouTube bağlantıları destekleniyor.")
 
 def opts():
-    return {"quiet": True, "no_warnings": True, "noplaylist": True, "restrictfilenames": True}
+    return {"quiet": True, "no_warnings": True, "noplaylist": True, "restrictfilenames": True, "js_runtimes": {"deno": {}}, "remote_components": {"ejs:npm"}}
 
 @app.post("/info")
 def info(req: Req):
